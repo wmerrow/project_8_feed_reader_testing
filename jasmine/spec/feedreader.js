@@ -34,7 +34,7 @@ $(function() {
         it('have URLs that are defined and not empty', function() {
             for(var i = 0; i < allFeeds.length; i++) {
                 expect(allFeeds[i].url).toBeDefined();
-                expect(allFeeds[i].url).not.toBe(null);
+                expect(allFeeds[i].url.length).toBeGreaterThan(0);
             }
         });
 
@@ -46,7 +46,7 @@ $(function() {
          it('have names that are defined and not empty', function() {
             for(var i = 0; i < allFeeds.length; i++) {
                 expect(allFeeds[i].name).toBeDefined();
-                expect(allFeeds[i].name).not.toBe(null);
+                expect(allFeeds[i].name.length).toBeGreaterThan(0);
             }
         });
     });
@@ -126,12 +126,12 @@ $(function() {
          });
 
          it('content should should change when a new feed is loaded', function(done) {
-                // load a new feed and set secondFeed equal to the feed's text
-                loadFeed(1, function() {
-                    secondFeed = $('.feed').text();
-                    expect(secondFeed).not.toEqual(firstFeed);
-                    done();
-                });
+            // load a new feed and set secondFeed equal to the feed's text
+            loadFeed(1, function() {
+                secondFeed = $('.feed').text();
+                expect(secondFeed).not.toEqual(firstFeed);
+                done();
+            });
          });
 
     });
